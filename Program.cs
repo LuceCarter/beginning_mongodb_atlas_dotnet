@@ -1,4 +1,21 @@
+using MongoDB.Driver;
+using MongoDB.Bson;
+
+
 var builder = WebApplication.CreateBuilder(args);
+
+// Fetch our connection string from appsettings which is available in the builder's Configuration
+var connectionString = builder.Configuration["GamesDatabaseSettings:ConnectionString"];
+
+MongoClient mongoDBClient = new MongoClient(connectionString);
+
+List<string> databases = mongoDBClient.ListDatabaseNames().ToList();
+
+foreach(string db in databases)
+{
+    Console.WriteLine(db);
+
+}
 
 // Add services to the container.
 
