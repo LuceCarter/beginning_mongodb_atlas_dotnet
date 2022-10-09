@@ -1,23 +1,14 @@
 using MongoDB.Driver;
 using MongoDB.Bson;
-
+using beginning_mongodb_atlas_dotnet.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Fetch our connection string from appsettings which is available in the builder's Configuration
 var connectionString = builder.Configuration["GamesDatabaseSettings:ConnectionString"];
 
-MongoClient mongoDBClient = new MongoClient(connectionString);
-
-List<string> databases = mongoDBClient.ListDatabaseNames().ToList();
-
-foreach(string db in databases)
-{
-    Console.WriteLine(db);
-
-}
-
 // Add services to the container.
+builder.Services.AddSingleton(new DatabaseService(connectionString));
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
