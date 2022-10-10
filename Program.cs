@@ -8,7 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration["GamesDatabaseSettings:ConnectionString"];
 
 // Add services to the container.
-builder.Services.AddSingleton(new DatabaseService(connectionString));
+builder.Services.AddSingleton(new GamesDatabaseService(connectionString));
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
