@@ -24,6 +24,10 @@ namespace beginning_mongodb_atlas_dotnet.Services
 
         public void UpdateOne(string id, Game updatedGame) => _games.ReplaceOne(game => game.Id == id, updatedGame);
 
-        public void DeleteOne(string id) => _games.DeleteOne(game => game.Id == id);
+        public void DeleteOne(string id)
+        {
+            FilterDefinition<Game> filter = Builders<Game>.Filter.Eq("_id", id);
+            _games.DeleteOne(filter);
+        }
     }
 }

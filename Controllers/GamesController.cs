@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace beginning_mongodb_atlas_dotnet.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     [ApiController]
     public class GamesController : ControllerBase
     {
@@ -32,20 +32,20 @@ namespace beginning_mongodb_atlas_dotnet.Controllers
             return game;
         }
 
-        [HttpPost("/CreateOne")]
+        [HttpPost("CreateOne")]
         public ActionResult<Game> Create(Game game)
         {
             _gameService.CreateOne(game);
 
-            return CreatedAtRoute("GetGame", new { id = game.Id.ToString() }, game);
+            return Ok();
         }
 
-        [HttpPost("/CreateMany")]
+        [HttpPost("CreateMany")]
         public ActionResult<Game> CreateMany(Game[] games)
         {
             _gameService.CreateMany(games);
 
-            return CreatedAtRoute("GetGame", true);
+            return Ok();
         }
 
         [HttpPut("{id:length(24)}")]
