@@ -3,7 +3,7 @@ using MongoDB.Bson;
 using System.Text.Json.Serialization;
 using System.ComponentModel.DataAnnotations;
 
-namespace beginning_mongodb_atlas_dotnet.Models
+namespace BeginningMongoDBAtlasDotNet.Models
 {
     public class Game
     {

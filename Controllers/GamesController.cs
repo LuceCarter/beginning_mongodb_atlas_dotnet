@@ -1,8 +1,8 @@
-﻿using beginning_mongodb_atlas_dotnet.Models;
-using beginning_mongodb_atlas_dotnet.Services;
+﻿using BeginningMongoDBAtlasDotNet.Models;
+using BeginningMongoDBAtlasDotNet.Services;
 using Microsoft.AspNetCore.Mvc;
 
-namespace beginning_mongodb_atlas_dotnet.Controllers
+namespace BeginningMongoDBAtlasDotNet.Controllers
 {
     [Route("[controller]")]
     [ApiController]
@@ -48,9 +48,10 @@ namespace beginning_mongodb_atlas_dotnet.Controllers
             return Ok();
         }
 
-        [HttpPut("{id:length(24)}")]
-        public IActionResult Update(string id, Game gameIn)
-        {
+        [HttpPut()]
+        public IActionResult Update([FromQuery]string id, Game gameIn)
+        {           
+
             var game = _gameService.GetOne(id);
 
             if (game == null)

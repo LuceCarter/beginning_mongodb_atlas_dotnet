@@ -1,7 +1,7 @@
-﻿using beginning_mongodb_atlas_dotnet.Models;
+﻿using BeginningMongoDBAtlasDotNet.Models;
 using MongoDB.Driver;
 
-namespace beginning_mongodb_atlas_dotnet.Services
+namespace BeginningMongoDBAtlasDotNet.Services
 {
     public class GamesDatabaseService
     {

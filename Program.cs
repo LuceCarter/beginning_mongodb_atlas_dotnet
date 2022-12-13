@@ -1,6 +1,6 @@
 using MongoDB.Driver;
 using MongoDB.Bson;
-using beginning_mongodb_atlas_dotnet.Services;
+using BeginningMongoDBAtlasDotNet.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
